@@ -41,6 +41,7 @@ export function DecisionLog({
         <li
           key={entry.title}
           className={styles.entry}
+          data-status={entry.status}
           style={{ "--i": index } as CSSProperties}
         >
           <time dateTime={entry.date} className={styles.date}>

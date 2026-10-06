@@ -108,17 +108,45 @@
   from {
     opacity: 0;
     transform: translateY(6px);
-    clip-path: inset(0 100% 0 0);
+    clip-path: inset(-1.5rem 100% -1.5rem -1.5rem);
   }
   to {
     opacity: 1;
     transform: none;
-    clip-path: inset(0 0 0 0);
+    /* Negative inset so the open-dot pulse isn't clipped */
+    clip-path: inset(-1.5rem -1.5rem -1.5rem -1.5rem);
+  }
+}
+
+/* An open question's dot pulses a few times after it writes in: "still waiting" */
+.animate .entry[data-status="open"]::after {
+  content: "";
+  position: absolute;
+  top: calc(0.35rem - 4px);
+  left: calc(var(--rail) + var(--gap) / 2 - 9px);
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  border: 2px solid var(--color-spruce);
+  opacity: 0;
+  animation: pulse 1600ms var(--ease-out) 3;
+  animation-delay: calc(var(--i) * 420ms + 1000ms);
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.7;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.8);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate .entry {
+  .animate .entry,
+  .animate .entry[data-status="open"]::after {
     animation: none;
   }
 }

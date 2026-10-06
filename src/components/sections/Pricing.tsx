@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { Badge } from "../Badge/Badge";
 import { Button } from "../Button/Button";
 import { Section } from "../Section/Section";
@@ -62,10 +63,12 @@ export function Pricing() {
       intro="Prices in US dollars. Billed monthly, cancel any time."
     >
       <ul className={styles.tiers}>
-        {tiers.map((tier) => (
+        {tiers.map((tier, index) => (
           <li
             key={tier.name}
             className={[styles.tier, tier.recommended && styles.recommended].filter(Boolean).join(" ")}
+            data-reveal
+            style={{ "--i": index } as CSSProperties}
           >
             <div className={styles.head}>
               <h3 className={styles.name}>{tier.name}</h3>

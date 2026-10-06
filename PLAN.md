@@ -75,4 +75,6 @@ The case study should honestly say "designed in Figma, built in Next.js." Open i
 - [x] Step 2.3: Hero (headline, pitch, animated log). axe: 0 violations; checked at 390 / 768 / 1280
 - [x] Step 2.4: Remaining sections (proof strip, features, how it works, pricing, questions, final CTA) + `/signup` placeholder for the future waitlist form. axe: 0 violations on all 4 pages
 - [x] Step 2.5: Responsive and accessibility pass. Lighthouse mobile: performance 97-99, accessibility 100, best practices 100, SEO 100 (/signup is noindex on purpose). Desktop: 100 across the board. Layout shift 0 on every page. Keyboard walkthrough: 22 stops, all with focus ring. No overflow at 320 / 360 / 768 / 1024 / 1280
-- [ ] Step 6: Go live
+- [x] Step 6: Go live. GitHub: https://github.com/Nipuna754/fieldnote-landing. Live: https://fieldnote-landing-one.vercel.app (all 4 pages load, links work, unknown pages return 404, /signup is noindex)
+- [x] Motion pass: hero entrance, scroll reveals (CSS scroll-driven, no JavaScript), step bars draw in, hover lift on buttons and pricing cards, feature row underline, smooth accordion, nav underline, pulse on the open decision. All off for reduced motion. Lighthouse unchanged (mobile 97/100/100/100, desktop 100), CLS 0, axe 0 violations
+- [ ] Upwork portfolio entry (images in hand, text drafted)

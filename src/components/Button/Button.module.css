@@ -14,7 +14,23 @@
   transition:
     background-color 120ms ease,
     border-color 120ms ease,
-    color 120ms ease;
+    color 120ms ease,
+    translate var(--duration-quick) var(--ease-out),
+    scale var(--duration-quick) var(--ease-out);
+}
+
+/* Lift on hover, press down on click */
+.button:hover:not(:disabled) {
+  translate: 0 -2px;
+}
+
+.button:active:not(:disabled) {
+  translate: 0;
+  scale: 0.97;
+}
+
+.quiet:hover:not(:disabled) {
+  translate: none;
 }
 
 .button:focus-visible {

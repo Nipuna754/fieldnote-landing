@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { Section } from "../Section/Section";
 import styles from "./HowItWorks.module.css";
 
@@ -22,7 +23,12 @@ export function HowItWorks() {
     <Section id="how" title="How it works" tone="surface">
       <ol className={styles.steps} role="list">
         {steps.map((step, index) => (
-          <li key={step.title} className={styles.step}>
+          <li
+            key={step.title}
+            className={styles.step}
+            data-reveal
+            style={{ "--i": index } as CSSProperties}
+          >
             <span className={styles.number} aria-hidden="true">
               {index + 1}
             </span>

@@ -44,6 +44,21 @@
   line-height: var(--leading-ui);
 }
 
+/* Page-load entrance: headline, then the pitch, then the log writes in */
+@media (prefers-reduced-motion: no-preference) {
+  .title {
+    animation: rise-in 700ms var(--ease-out) both;
+  }
+
+  .pitch {
+    animation: rise-in 700ms var(--ease-out) 150ms both;
+  }
+
+  .product {
+    animation: rise-in 700ms var(--ease-out) 250ms both;
+  }
+}
+
 /* Wide screens: headline across the top, pitch (narrow) beside the log (wide). */
 @media (min-width: 60rem) {
   .hero {
@@ -63,5 +78,16 @@
 
   .pitch {
     padding-top: var(--space-2);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }

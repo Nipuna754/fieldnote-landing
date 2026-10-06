@@ -103,8 +103,18 @@
     gap: var(--space-5);
   }
 
+  /* Underline slides in from the left on hover */
   .link {
     font-size: var(--text-s);
     border-bottom: 0;
+    background: linear-gradient(currentColor, currentColor) left calc(50% + 0.8em) / 0 2px no-repeat;
+    transition:
+      background-size var(--duration-base) var(--ease-out),
+      color var(--duration-quick) ease;
+  }
+
+  .link:hover {
+    text-decoration: none;
+    background-size: 100% 2px;
   }
 }

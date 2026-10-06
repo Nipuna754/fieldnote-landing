@@ -5,11 +5,23 @@
 }
 
 .step {
+  position: relative;
   display: grid;
   align-content: start;
   gap: var(--space-3);
   padding-top: var(--space-4);
-  border-top: 2px solid var(--color-spruce);
+}
+
+/* The spruce bar above each step. It draws in, left to right, as it scrolls into view. */
+.step::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-spruce);
+  transform-origin: left;
 }
 
 .number {
@@ -28,5 +40,24 @@
 @media (min-width: 48rem) {
   .steps {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .step::before {
+      animation: grow-x linear both;
+      animation-timeline: view();
+      animation-range: entry calc(20% + var(--i, 0) * 7%) cover calc(40% + var(--i, 0) * 7%);
+    }
+  }
+}
+
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }

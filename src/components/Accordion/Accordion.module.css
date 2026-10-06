@@ -61,11 +61,55 @@
   transform: rotate(0deg);
 }
 
+.icon {
+  transition: rotate var(--duration-base) var(--ease-out);
+}
+
+.item[open] .icon {
+  rotate: 180deg;
+}
+
 .answer {
   padding-bottom: var(--space-5);
   color: var(--color-ink);
 }
 
+/* Smooth open and close where the browser supports animating to "auto" height */
+@supports (interpolate-size: allow-keywords) {
+  .item {
+    interpolate-size: allow-keywords;
+  }
+
+  .item::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition:
+      block-size var(--duration-base) var(--ease-out),
+      content-visibility var(--duration-base) allow-discrete;
+  }
+
+  .item[open]::details-content {
+    block-size: auto;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .item[open] .answer {
+    animation: rise-in 360ms var(--ease-out) both;
+  }
+}
+
 .answer > * + * {
   margin-top: var(--space-3);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

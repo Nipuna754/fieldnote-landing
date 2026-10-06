@@ -30,7 +30,7 @@ export function Section({
     >
       <div className={`container ${layout === "split" ? styles.split : ""}`}>
         {title && (
-          <header className={styles.head}>
+          <header className={styles.head} data-reveal>
             <h2 id={headingId}>{title}</h2>
             {intro && <p className={styles.intro}>{intro}</p>}
           </header>

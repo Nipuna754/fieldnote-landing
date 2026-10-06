@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import styles from "./ProofStrip.module.css";
 
 /* Plain product facts instead of fake customer logos. */
@@ -11,8 +12,13 @@ export function ProofStrip() {
   return (
     <section className={styles.strip} aria-label="Fieldnote at a glance">
       <ul className={`container ${styles.list}`}>
-        {items.map((item) => (
-          <li key={item.title} className={styles.item}>
+        {items.map((item, index) => (
+          <li
+            key={item.title}
+            className={styles.item}
+            data-reveal
+            style={{ "--i": index } as CSSProperties}
+          >
             <p className={styles.title}>{item.title}</p>
             <p className={styles.text}>{item.text}</p>
           </li>

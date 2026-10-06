@@ -30,7 +30,7 @@ export function Features() {
     >
       <ul className={styles.rows}>
         {features.map((feature) => (
-          <li key={feature.title} className={styles.row}>
+          <li key={feature.title} className={styles.row} data-reveal>
             <h3 className={styles.title}>{feature.title}</h3>
             <p>{feature.text}</p>
           </li>

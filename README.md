@@ -2,6 +2,8 @@
 
 A landing page and reusable UI kit for **Fieldnote**, a fictional decision log for remote teams. Built as a portfolio piece to show web design, front-end and accessibility work.
 
+**Live site:** https://fieldnote-landing-one.vercel.app
+
 > Fieldnote is not a real product. The people and decisions in the examples are made up.
 
 ## Pages

@@ -11,7 +11,7 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
   return (
     <div className={styles.accordion}>
       {items.map((item) => (
-        <details key={item.question} className={styles.item}>
+        <details key={item.question} className={styles.item} data-reveal>
           <summary className={styles.summary}>
             <span>{item.question}</span>
             <span className={styles.icon} aria-hidden="true" />

@@ -1,0 +1,38 @@
+/*
+ * Motion. Two kinds:
+ * 1. Scroll reveal: anything marked data-reveal fades and rises as it scrolls
+ *    into view. Pure CSS (scroll-driven animations), no JavaScript. Browsers
+ *    without support simply show the content in place.
+ * 2. Hover and press feedback, kept in each component's own CSS.
+ * Visitors who prefer reduced motion get none of the reveal animations.
+ * Only opacity and transform are animated, so nothing shifts the layout.
+ */
+
+:root {
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-spring: cubic-bezier(0.3, 1.4, 0.5, 1);
+  --duration-quick: 160ms;
+  --duration-base: 280ms;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    [data-reveal] {
+      /* --i staggers items that sit side by side in a row */
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry calc(4% + var(--i, 0) * 7%) cover calc(22% + var(--i, 0) * 7%);
+    }
+  }
+}

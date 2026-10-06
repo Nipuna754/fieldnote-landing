@@ -4,14 +4,41 @@
 }
 
 .row {
+  position: relative;
   display: grid;
   gap: var(--space-2);
   padding-block: var(--space-5);
   border-bottom: var(--border-rule);
 }
 
+/* Hover: a spruce line draws along the bottom rule */
+.row::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--color-spruce);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 420ms var(--ease-out);
+}
+
+.row:hover::after {
+  transform: scaleX(1);
+}
+
 .title {
   font-size: var(--text-l);
+  transition:
+    color var(--duration-base) ease,
+    translate var(--duration-base) var(--ease-out);
+}
+
+.row:hover .title {
+  color: var(--color-spruce);
+  translate: 4px 0;
 }
 
 @media (min-width: 40rem) {
