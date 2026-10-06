@@ -1,0 +1,32 @@
+.steps {
+  display: grid;
+  gap: var(--space-6);
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 2px solid var(--color-spruce);
+}
+
+.number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-2xl);
+  line-height: 1;
+  color: var(--color-spruce);
+  font-variant-numeric: tabular-nums;
+}
+
+.title {
+  font-size: var(--text-l);
+}
+
+@media (min-width: 48rem) {
+  .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

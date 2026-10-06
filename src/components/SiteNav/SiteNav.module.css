@@ -1,0 +1,110 @@
+.header {
+  border-bottom: var(--border-rule);
+  background: var(--color-paper);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 4.5rem;
+  padding-block: var(--space-3);
+}
+
+.brand {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  text-decoration: none;
+}
+
+.toggle {
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-4);
+  background: transparent;
+  border: var(--border-width) solid var(--color-rule-strong);
+  border-radius: var(--radius-control);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-s);
+  cursor: pointer;
+}
+
+.toggle:hover {
+  background: var(--color-wash);
+}
+
+.toggle:focus-visible {
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-control);
+}
+
+/* Small screens: menu is a drop-down panel under the bar */
+.menu {
+  display: none;
+  flex-basis: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-4);
+  padding-block: var(--space-2) var(--space-3);
+}
+
+.menu[data-open="true"] {
+  display: flex;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-m);
+  color: var(--color-ink);
+  text-decoration: none;
+  border-bottom: var(--border-rule);
+}
+
+.link:hover {
+  color: var(--color-spruce);
+  text-decoration: underline;
+}
+
+/* Wide screens: one row, no toggle */
+@media (min-width: 52rem) {
+  .nav {
+    flex-wrap: nowrap;
+  }
+
+  .toggle {
+    display: none;
+  }
+
+  .menu,
+  .menu[data-open="true"] {
+    display: flex;
+    flex-basis: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-6);
+    padding: 0;
+  }
+
+  .links {
+    flex-direction: row;
+    gap: var(--space-5);
+  }
+
+  .link {
+    font-size: var(--text-s);
+    border-bottom: 0;
+  }
+}

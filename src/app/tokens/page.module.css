@@ -1,0 +1,127 @@
+.page {
+  display: grid;
+  gap: var(--space-8);
+  padding-block: var(--space-8) var(--space-9);
+}
+
+.intro {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.page section {
+  display: grid;
+  gap: var(--space-5);
+  border-top: var(--border-rule);
+  padding-top: var(--space-6);
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: var(--space-5) var(--space-4);
+  list-style: none;
+}
+
+.swatch {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.chip {
+  height: 3.5rem;
+  border: var(--border-rule);
+  border-radius: var(--radius-panel);
+}
+
+.swatchName {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-s);
+  line-height: var(--leading-ui);
+}
+
+.swatchMeta {
+  color: var(--color-ink-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-ui);
+}
+
+.specimen {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.small {
+  font-size: var(--text-xs);
+}
+
+.spacing {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.spacing li {
+  display: grid;
+  grid-template-columns: 5.5rem 3.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.spacing li > .bar {
+  grid-column: 3;
+  grid-row: 1;
+  height: 0.75rem;
+  max-width: 100%;
+  background: var(--color-spruce);
+  border-radius: var(--radius-tag);
+}
+
+.spacing li > .swatchName {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.spacing li > .swatchMeta {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.shapes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.tag,
+.control,
+.panel {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-s);
+  border: var(--border-width) solid var(--color-rule-strong);
+}
+
+.tag {
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-amber);
+  border-color: var(--color-amber);
+  border-radius: var(--radius-tag);
+}
+
+.control {
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-spruce);
+  border-color: var(--color-spruce);
+  color: var(--color-paper);
+  border-radius: var(--radius-control);
+}
+
+.panel {
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-surface);
+  border-color: var(--color-rule);
+  border-radius: var(--radius-panel);
+}

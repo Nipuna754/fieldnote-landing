@@ -1,0 +1,53 @@
+.section {
+  padding-block: var(--space-8);
+  scroll-margin-top: var(--space-4);
+}
+
+.paper {
+  background: var(--color-paper);
+}
+
+/* Two plain sections in a row: don't double the gap between them */
+.paper + .paper {
+  padding-top: 0;
+}
+
+.surface {
+  background: var(--color-surface);
+  border-block: var(--border-rule);
+}
+
+.head {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-7);
+}
+
+.head h2 {
+  max-width: var(--measure-headline);
+}
+
+.intro {
+  color: var(--color-ink-muted);
+  font-size: var(--text-l);
+  line-height: 1.5;
+  max-width: 46ch;
+}
+
+.body {
+  min-width: 0;
+}
+
+/* Split layout: same 4:7 columns as the hero */
+@media (min-width: 60rem) {
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    column-gap: var(--space-7);
+    align-items: start;
+  }
+
+  .split .head {
+    margin-bottom: 0;
+  }
+}

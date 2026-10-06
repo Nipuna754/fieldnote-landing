@@ -1,0 +1,67 @@
+.hero {
+  padding-block: var(--space-8) var(--space-8);
+  border-bottom: var(--border-rule);
+}
+
+/* Phone: one column. Headline, then pitch, then the log. */
+.inner {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.title {
+  font-size: var(--text-3xl);
+  max-width: 19ch;
+}
+
+.pitch {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-5);
+}
+
+.lede {
+  font-size: var(--text-l);
+  line-height: 1.5;
+  max-width: 34ch;
+}
+
+.small {
+  margin-top: calc(var(--space-2) * -1);
+  color: var(--color-ink-muted);
+  font-size: var(--text-s);
+}
+
+.product {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.caption {
+  color: var(--color-ink-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-ui);
+}
+
+/* Wide screens: headline across the top, pitch (narrow) beside the log (wide). */
+@media (min-width: 60rem) {
+  .hero {
+    padding-block: var(--space-9) var(--space-8);
+  }
+
+  .inner {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    column-gap: var(--space-7);
+    row-gap: var(--space-7);
+    align-items: start;
+  }
+
+  .title {
+    grid-column: 1 / -1;
+  }
+
+  .pitch {
+    padding-top: var(--space-2);
+  }
+}

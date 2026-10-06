@@ -1,0 +1,115 @@
+.tiers {
+  display: grid;
+  gap: var(--space-5);
+  list-style: none;
+}
+
+.tier {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-5);
+  border: var(--border-rule);
+  border-radius: var(--radius-panel);
+}
+
+/* The recommended plan: filled surface and a heavier spruce border */
+.recommended {
+  background: var(--color-surface);
+  border: 2px solid var(--color-spruce);
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.name {
+  font-size: var(--text-xl);
+}
+
+.price {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.amount {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-2xl);
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+}
+
+.per {
+  color: var(--color-ink-muted);
+  font-size: var(--text-s);
+}
+
+.for {
+  font-size: var(--text-s);
+  line-height: 1.5;
+}
+
+.features {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  font-size: var(--text-s);
+  line-height: 1.45;
+}
+
+.features li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.check {
+  flex: none;
+  color: var(--color-spruce);
+  transform: translateY(3px);
+}
+
+/* Push every button to the bottom so they line up across plans */
+.cta {
+  margin-top: auto;
+}
+
+@media (min-width: 60rem) {
+  .tiers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+  }
+}
+
+/* Tablets: one plan per row, with its feature list beside the price */
+@media (min-width: 40rem) and (max-width: 59.99rem) {
+  .tier {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: var(--space-6);
+    row-gap: var(--space-3);
+    align-content: start;
+  }
+
+  .head,
+  .price,
+  .for,
+  .cta {
+    grid-column: 1;
+  }
+
+  .features {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    align-self: start;
+  }
+
+  .cta {
+    margin-top: var(--space-2);
+  }
+}

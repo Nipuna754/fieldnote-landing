@@ -1,0 +1,70 @@
+/*
+  Fieldnote design tokens: the single source of truth.
+  Every colour pair used for text is checked against WCAG AA by scripts/contrast.py.
+  Change a value here and the whole site (and the Figma token table) should follow.
+*/
+
+:root {
+  /* Colour */
+  --color-ink: #1b2430;
+  --color-ink-muted: #4a5560;
+  --color-paper: #f3f5f2;
+  --color-surface: #fbfcfa;
+  --color-wash: #e3ebe7;
+  --color-spruce: #0e4a44;
+  --color-spruce-hover: #0a3a35;
+  --color-amber: #f2b33d;
+  --color-amber-hover: #f6c766;
+  --color-rule: #c9d1cc;
+  --color-rule-strong: #7d8a84;
+  --color-brick: #b3392f;
+
+  /* Type families */
+  /* The -face variables are set by next/font in src/app/fonts.ts */
+  --font-display: var(--font-display-face), ui-sans-serif, system-ui, sans-serif;
+  --font-reading: var(--font-reading-face), Georgia, "Times New Roman", serif;
+
+  /* Type scale (fluid between 360px and 1280px screens) */
+  --text-xs: 0.8125rem;
+  --text-s: 0.9375rem;
+  --text-m: 1.0625rem;
+  --text-l: 1.3125rem;
+  --text-xl: clamp(1.625rem, 1.3rem + 1.4vw, 2.25rem);
+  --text-2xl: clamp(2.125rem, 1.5rem + 2.8vw, 3.5rem);
+  --text-3xl: clamp(2.75rem, 1.6rem + 5vw, 5.25rem);
+
+  /* Line height and tracking */
+  --leading-display: 1.04;
+  --leading-ui: 1.3;
+  --leading-reading: 1.65;
+  --tracking-display: -0.02em;
+
+  /* Measure (line length) */
+  --measure-reading: 62ch;
+  --measure-headline: 16ch;
+
+  /* Spacing (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 7rem;
+
+  /* Shape: radius follows hierarchy */
+  --radius-tag: 3px;
+  --radius-control: 8px;
+  --radius-panel: 14px;
+
+  /* Borders and focus */
+  --border-width: 1px;
+  --border-rule: var(--border-width) solid var(--color-rule);
+  --focus-ring: 0 0 0 3px var(--color-paper), 0 0 0 6px var(--color-spruce);
+
+  /* Layout */
+  --page-max: 72rem;
+  --page-gutter: clamp(1rem, 4vw, 2.5rem);
+}

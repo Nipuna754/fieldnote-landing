@@ -1,0 +1,93 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-s);
+  line-height: var(--leading-ui);
+  text-decoration: none;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-control);
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    color 120ms ease;
+}
+
+.button:focus-visible {
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-control);
+}
+
+/* Sizes: both meet the 44px touch-target minimum */
+.m {
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-4);
+}
+
+.l {
+  min-height: 3.25rem;
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-m);
+}
+
+/* Variants */
+.primary {
+  background: var(--color-spruce);
+  border-color: var(--color-spruce);
+  color: var(--color-paper);
+}
+
+.primary:hover {
+  background: var(--color-spruce-hover);
+  border-color: var(--color-spruce-hover);
+  color: var(--color-paper);
+}
+
+.secondary {
+  background: transparent;
+  border-color: var(--color-spruce);
+  color: var(--color-spruce);
+}
+
+.secondary:hover {
+  background: var(--color-wash);
+  color: var(--color-spruce-hover);
+}
+
+.quiet {
+  background: transparent;
+  color: var(--color-spruce);
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+  padding-inline: var(--space-2);
+}
+
+.quiet:hover {
+  background: var(--color-wash);
+  color: var(--color-spruce-hover);
+}
+
+.highlight {
+  background: var(--color-amber);
+  border-color: var(--color-amber);
+  color: var(--color-ink);
+}
+
+.highlight:hover {
+  background: var(--color-amber-hover);
+  border-color: var(--color-amber-hover);
+  color: var(--color-ink);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  background: var(--color-wash);
+  border-color: var(--color-rule);
+  color: var(--color-ink-muted);
+  text-decoration: none;
+}

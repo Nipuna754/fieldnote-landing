@@ -1,0 +1,26 @@
+.cta {
+  /* On the dark band, the focus ring flips: spruce gap, paper ring */
+  --focus-ring: 0 0 0 3px var(--color-spruce), 0 0 0 6px var(--color-paper);
+
+  padding-block: var(--space-9);
+  background: var(--color-spruce);
+  color: var(--color-paper);
+  scroll-margin-top: var(--space-4);
+}
+
+.inner {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-5);
+}
+
+.title {
+  max-width: 18ch;
+  color: var(--color-paper);
+}
+
+.text {
+  max-width: 40ch;
+  font-size: var(--text-l);
+  line-height: 1.5;
+}

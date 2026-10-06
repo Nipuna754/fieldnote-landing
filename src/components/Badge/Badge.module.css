@@ -1,0 +1,31 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem var(--space-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  line-height: var(--leading-ui);
+  white-space: nowrap;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-tag);
+}
+
+.decided {
+  background: var(--color-amber);
+  border-color: var(--color-amber);
+  color: var(--color-ink);
+}
+
+.open {
+  background: var(--color-wash);
+  border-color: var(--color-rule);
+  color: var(--color-ink);
+}
+
+.superseded {
+  background: transparent;
+  border-color: var(--color-rule-strong);
+  border-style: dashed;
+  color: var(--color-ink-muted);
+}

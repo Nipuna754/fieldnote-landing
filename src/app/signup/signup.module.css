@@ -1,0 +1,10 @@
+.page {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-5);
+  padding-block: var(--space-9);
+}
+
+.title {
+  font-size: var(--text-2xl);
+}
