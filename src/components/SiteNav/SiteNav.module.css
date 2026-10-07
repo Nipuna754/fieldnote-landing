@@ -1,6 +1,40 @@
+/* Sticky bar: stays at the top while scrolling, slightly see-through */
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
   border-bottom: var(--border-rule);
-  background: var(--color-paper);
+  background: color-mix(in srgb, var(--color-paper) 92%, transparent);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  backdrop-filter: blur(12px) saturate(1.2);
+}
+
+/* Reading progress: a thin spruce line along the bottom edge that fills as you scroll */
+.header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--color-spruce);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .header::after {
+      animation: progress linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
+@keyframes progress {
+  to {
+    transform: scaleX(1);
+  }
 }
 
 .nav {
@@ -78,6 +112,11 @@
   text-decoration: underline;
 }
 
+.link[data-active] {
+  color: var(--color-spruce);
+  font-weight: 600;
+}
+
 /* Wide screens: one row, no toggle */
 @media (min-width: 52rem) {
   .nav {
@@ -113,8 +152,13 @@
       color var(--duration-quick) ease;
   }
 
-  .link:hover {
+  .link:hover,
+  .link[data-active] {
     text-decoration: none;
     background-size: 100% 2px;
+  }
+
+  .link[data-active] {
+    font-weight: 500;
   }
 }

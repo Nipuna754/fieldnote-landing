@@ -1,7 +1,10 @@
+import { Fragment, type CSSProperties } from "react";
 import { Button } from "../Button/Button";
 import { DecisionLog } from "../DecisionLog/DecisionLog";
 import { exampleDecisions } from "@/content/decisions";
 import styles from "./Hero.module.css";
+
+const headline = "Know what was decided, by whom, and why.".split(" ");
 
 /**
  * Landing page hero. The headline runs wide; below it, the copy and button sit
@@ -12,7 +15,15 @@ export function Hero() {
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={`container ${styles.inner}`}>
         <h1 id="hero-title" className={styles.title}>
-          Know what was decided, by whom, and why.
+          {/* Each word rises in turn on page load */}
+          {headline.map((word, index) => (
+            <Fragment key={index}>
+              <span className={styles.word} style={{ "--w": index } as CSSProperties}>
+                {word}
+              </span>
+              {index < headline.length - 1 && " "}
+            </Fragment>
+          ))}
         </h1>
 
         <div className={styles.pitch}>

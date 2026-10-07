@@ -1,6 +1,5 @@
 .section {
   padding-block: var(--space-8);
-  scroll-margin-top: var(--space-4);
 }
 
 .paper {
@@ -49,5 +48,27 @@
 
   .split .head {
     margin-bottom: 0;
+  }
+}
+
+/* Headings slide up from behind an invisible mask as they scroll into view */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .title {
+      animation: unmask linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 30%;
+    }
+  }
+}
+
+@keyframes unmask {
+  from {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(0.6em);
+  }
+  to {
+    clip-path: inset(-0.2em -0.2em -0.3em -0.2em);
+    transform: none;
   }
 }

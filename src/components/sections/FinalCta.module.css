@@ -5,7 +5,6 @@
   padding-block: var(--space-9);
   background: var(--color-spruce);
   color: var(--color-paper);
-  scroll-margin-top: var(--space-4);
 }
 
 .inner {
@@ -23,4 +22,23 @@
   max-width: 40ch;
   font-size: var(--text-l);
   line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .cta {
+      animation: widen linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+  }
+}
+
+@keyframes widen {
+  from {
+    clip-path: inset(0 var(--page-gutter) round 28px);
+  }
+  to {
+    clip-path: inset(0 0 round 0);
+  }
 }

@@ -13,7 +13,10 @@
 }
 
 html {
+  --header-h: 4.5rem;
   color-scheme: light;
+  /* Anchor links land below the sticky menu bar */
+  scroll-padding-top: calc(var(--header-h) + var(--space-4));
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -133,6 +136,12 @@ select {
 
 .skip-link:focus {
   transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

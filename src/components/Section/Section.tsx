@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import styles from "./Section.module.css";
 
 type Props = {
@@ -30,9 +30,15 @@ export function Section({
     >
       <div className={`container ${layout === "split" ? styles.split : ""}`}>
         {title && (
-          <header className={styles.head} data-reveal>
-            <h2 id={headingId}>{title}</h2>
-            {intro && <p className={styles.intro}>{intro}</p>}
+          <header className={styles.head}>
+            <h2 id={headingId} className={styles.title}>
+              {title}
+            </h2>
+            {intro && (
+              <p className={styles.intro} data-reveal style={{ "--i": 1 } as CSSProperties}>
+                {intro}
+              </p>
+            )}
           </header>
         )}
         <div className={styles.body}>{children}</div>

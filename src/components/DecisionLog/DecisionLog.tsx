@@ -50,7 +50,9 @@ export function DecisionLog({
           <div className={styles.body}>
             <div className={styles.top}>
               <p className={styles.title}>{entry.title}</p>
-              <Badge tone={entry.status}>{statusLabel[entry.status]}</Badge>
+              <span className={styles.stamp}>
+                <Badge tone={entry.status}>{statusLabel[entry.status]}</Badge>
+              </span>
             </div>
             <p className={styles.who}>{entry.who}</p>
             <p className={styles.why}>{entry.why}</p>

@@ -44,18 +44,53 @@
   line-height: var(--leading-ui);
 }
 
-/* Page-load entrance: headline, then the pitch, then the log writes in */
+.word {
+  display: inline-block;
+}
+
+/* Page-load entrance: headline word by word, then the pitch, then the log writes in */
 @media (prefers-reduced-motion: no-preference) {
-  .title {
-    animation: rise-in 700ms var(--ease-out) both;
+  .word {
+    animation: word-in 800ms var(--ease-out) both;
+    animation-delay: calc(var(--w) * 70ms);
   }
 
   .pitch {
-    animation: rise-in 700ms var(--ease-out) 150ms both;
+    animation: rise-in 700ms var(--ease-out) 450ms both;
   }
 
   .product {
-    animation: rise-in 700ms var(--ease-out) 250ms both;
+    animation: rise-in 700ms var(--ease-out) 550ms both;
+  }
+}
+
+/* Wide screens: as the page scrolls, the log drifts up a little faster than the page */
+@media (prefers-reduced-motion: no-preference) and (min-width: 60rem) {
+  @supports (animation-timeline: scroll()) {
+    .product {
+      animation:
+        rise-in 700ms var(--ease-out) 550ms both,
+        drift linear both;
+      animation-timeline: auto, scroll(root);
+      animation-range: normal, 0 100vh;
+    }
+  }
+}
+
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.45em) rotate(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes drift {
+  to {
+    translate: 0 -56px;
   }
 }
 

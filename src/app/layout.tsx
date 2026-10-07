@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${displayFont.variable} ${readingFont.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${displayFont.variable} ${readingFont.variable}`}>
       <body>
         <a className="skip-link" href="#main">
           Skip to content
